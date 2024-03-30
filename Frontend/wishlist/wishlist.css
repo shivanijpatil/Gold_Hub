@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+body{
+	
+	font-family: 'Poppins', sans-serif;
+}
+*{
+	box-sizing: border-box;
+}
+.wishlist_container{
+    width: 75%;
+    margin:auto;
+	padding-bottom: 10px;
+}
+.wishlist-home-btn button {
+    border: none;
+    outline: none;
+    background-color: hsl(0, 0%, 100%);
+    cursor: pointer;
+}
+
+.wishlist-home-btn button:nth-child(2) {
+    border-top: 0;
+    border-right: 2px solid rgb(42, 41, 41);
+    border-bottom: 0;
+    border-left: 2px solid rgb(42, 41, 41);
+}
+.wishlist-items-cards{
+    display: flex;
+    
+}
+.wishlist-items{
+    height: 60%;
+    /* background-color: blueviolet; */
+    width: 20%;
+    margin-top: -10px;
+    padding: 0;
+    border-right:1px solid rgb(137, 137, 137);
+}
+.wishlist-items h5 {
+    margin: 0;
+    padding: 20px;
+    border-bottom: 1px solid rgb(126, 124, 124);
+  }
+  .wishlist-items h5 :hover{
+    cursor: pointer;
+  }
