@@ -1,46 +1,97 @@
-let card_creator1 = document.getElementById("card_creator1");
+let card_container = document.getElementById("card_container");
+let url = `https://pixel-prerana-2345.onrender.com/products?_page=1&_limit=10`;
+let pagination_btn = document.getElementById("pagination_btn");
+let products = [];
+let page = 1;
+let perPage = 14;
+let isLoading = false;
+
+// loadFetchdata();
 
 async function loadFetchdata() {
-  // if (isLoading) return;
-  // isLoading = true;
-
-  let url = `http://localhost:3000/Sheet1`;
+  if (isLoading) return;
+  isLoading = true;
 
   try {
     let res = await fetch(url);
     let newProducts = await res.json();
-    newProducts.forEach((item) => {
-      card_creator1.append(card_creator(item));
-
-
-    })
     if (newProducts.length === 0) {
       // No more data to load
       window.removeEventListener("scroll", handleScroll);
       return;
     }
-    // products = [...products, ...newProducts];
-    // create_card(newProducts);
-     console.log(newProducts);
-    // page++;
+    products = [...products, ...newProducts];
+    create_card(newProducts);
+    page++;
     isLoading = false;
   } catch (error) {
     console.log("Error: ", error);
-    // isLoading = false;
+    isLoading = false;
   }
 }
 
+///pagination start
+async function fetchData(link) {
+  try {
+    let res = await fetch(link);
+    let dat = await res.json();
+    console.log(dat);
+    //for pagination 
+    let TotalData = res.headers.get('X-Total-Count');
+    let limit = 5;
+    let totalPages = Math.ceil(TotalData / limit);
+    //to create button
+    pagination_btn.innerHTML = "";
+    for (let i = 1; i <= totalPages; i++) {
+      let btn = document.createElement("button");
+      btn.classList.add("pagebtn");
+      btn.innerText = i;
 
-// function create_card(data) {
-//   data.forEach((element) => {
-//     let card = card_creator(element);
-//     // card_container.append(card);
-//     card_creator1.append(card);
-//   });
+      btn.addEventListener("click", () => {
+        card_container.innerHTML = "";
+        fetchData(`${url}&_page=${i}&_limit=16`);
+      })
+      pagination_btn.append(btn);
 
-// }
+    }
+
+    //creating elements from array and appending to main container
+
+    dat.forEach((item) => {
+      card_container.append(card_creator(item));
+
+    })
+  } catch (err) { console.log(err) }
+}
+fetchData(url);
 
 
+// let productsString = JSON.stringify(products);
+// localStorage.setItem('products', productsString);
+// let productsString = localStorage.getItem('products');
+// let products = JSON.parse(productsString);
+
+// // To use the products array
+// create_card(products);
+// card_container.addEventListener("click", (event) => {
+//   console.log("Card container clicked!");
+//   console.log("Event target:", event.target);
+//   console.log("Card element:", event.target.closest(".card"));
+// });
+// window.addEventListener("scroll", () => {
+//   console.log("Window scrolled!");
+// });
+
+
+
+
+
+function create_card(data) {
+  data.forEach((element) => {
+    let card = card_creator(element);
+    card_container.append(card);
+  });
+}
 
 function card_creator(element) {
   let card = document.createElement("div");
@@ -51,13 +102,12 @@ function card_creator(element) {
   card_img.classList.add("card-image");
 
   let img = document.createElement("img");
-  img.src = element.image;
-  img.alt = element.title;
-  let title = document.createElement( "h2" );
-  title.innerText = element.title;
-  // let second_img = document.createElement("div");
-  // second_img.classList.add("second-image");
-  // second_img.style.backgroundImage = `url(${element.Img[1]})`;
+  img.src = element.Img[0];
+  img.alt = element.Title;
+
+  let second_img = document.createElement("div");
+  second_img.classList.add("second-image");
+  second_img.style.backgroundImage = `url(${element.Img[1]})`;
 
   let heart_icon = document.createElement("div");
   heart_icon.classList.add("heart-icon");
@@ -77,7 +127,7 @@ function card_creator(element) {
   span.classList.add("wishlist-text");
   span.innerText = "♥";
 
-  card_img.append(img,heart_icon, span);
+  card_img.append(img, second_img, heart_icon, span);
 
   let card_container = document.createElement("div");
 
@@ -86,12 +136,12 @@ function card_creator(element) {
   let card_title = document.createElement("div");
 
   card_title.classList.add("card-title");
-  card_title.innerText = element.title;
+  card_title.innerText = element.Title;
 
   let card_price = document.createElement("div");
 
   card_price.classList.add("card-price");
-  card_price.innerText = `₹${element.price}`;
+  card_price.innerText = `₹${element.Price}`;
 
   let card_action = document.createElement("div");
 
@@ -102,9 +152,9 @@ function card_creator(element) {
   button.innerText = "Check Delivery Date";
 
   // Add event listener to navigate to productinfo.html on button click
-  button.addEventListener("click", () => {
-    window.location.href = `productinfo.html?id=${element.id}`;
-  });
+  // button.addEventListener("click", () => {
+  //   window.location.href = `productinfo.html?id=${element.id}`;
+  // });
 
   card_action.append(button);
 
@@ -114,8 +164,27 @@ function card_creator(element) {
 
   return card;
 }
-loadFetchdata();
+window.scrollTo(0, 0);
 
+
+
+// button.addEventListener('click', () => {
+//   let CartData = [];
+//   if (localStorage.getItem("CartData")!== null) {
+//       CartData = JSON.parse(localStorage.getItem("CartData"));
+//   }
+//   let flag = false;
+//   CartData.forEach(ele => {
+//       if (ele.ID === data.ID) {
+//           ele.quantity++;
+//           flag = true;
+//       }
+//   })
+//   if (!flag) {
+//       CartData.push({...data, quantity: 1})
+//   }
+//   localStorage.setItem("CartData", JSON.stringify(CartData));
+// });
 
 // function handleScroll() {
 //   if (
@@ -173,10 +242,3 @@ loadFetchdata();
 //     }
 //   });
 // }
-
-// document
-//   .getElementById("searchInIphone")
-//   .addEventListener("input", function () {
-//     card_container.innerHTML = "";
-//     create_card(products);
-//   });
