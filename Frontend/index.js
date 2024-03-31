@@ -168,6 +168,65 @@ window.scrollTo(0, 0);
 
 
 
+function handleScroll() {
+  if (
+    window.innerHeight + window.scrollY >= document.body.offsetHeight &&
+    !isLoading
+  ) {
+    loadFetchdata();
+  }
+}
+
+window.addEventListener("scroll", handleScroll);
+
+document.getElementById("sortSelect").addEventListener("change", function () {
+  let sortValue = this.value;
+  let sortedProducts = [];
+
+  switch (sortValue) {
+    case "bestMatches":
+      sortedProducts = products;
+      break;
+    case "bestSellers":
+      sortedProducts = products.filter((product) => product.bestSeller);
+      break;
+    case "newArrivals":
+      sortedProducts = products.filter((product) => product.newArrival);
+      break;
+    case "popularity":
+      sortedProducts = products.sort((a, b) => b.popularity - a.popularity);
+      break;
+    case "priceLowToHigh":
+      sortedProducts = products.sort((a, b) => a.Price - b.Price);
+      break;
+    case "priceHighToLow":
+      sortedProducts = products.sort((a, b) => b.Price - a.Price);
+      break;
+    default:
+      sortedProducts = products;
+  }
+
+  card_container.innerHTML = "";
+  create_card(sortedProducts);
+});
+
+// search addEventListener
+
+function create_card(data) {
+  let searchInput = document
+    .getElementById("searchInIphone")
+    .value.toLowerCase();
+
+  data.forEach((element) => {
+    if (element.Title.toLowerCase().includes(searchInput)) {
+      let card = card_creator(element);
+      card_container.append(card);
+    }
+  });
+}
+
+
+
 // button.addEventListener('click', () => {
 //   let CartData = [];
 //   if (localStorage.getItem("CartData")!== null) {

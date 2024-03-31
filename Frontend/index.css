@@ -1,7 +1,64 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Center items vertically */
+  background-color: rgb(252, 249, 249);
+  padding: 10px;
+  color: #000; /* Set the text color to black */
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.navbar .left-section,
+.navbar .right-section {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .right-section span,
+.navbar .right-section img {
+  margin-left: 10px;
+}
+
+.filter {
+  display: inline-flex; /* Use inline-flex to keep items in a single line */
+  align-items: center; /* Align items vertically */
+  margin-top: 10px;
+  margin-right: 20px; /* Reduce the margin-right for better alignment */
+  margin-left: 5%;
+  
+}
+
+.filter .icon {
+  font-size: 16px; /* Adjust icon size as needed */
+  margin-right: 5px; /* Add some space between the icon and text */
+}
+
+.sort {
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: 5%; /* Use auto margin to push the sort element to the right */
+}
+
+.sort select {
+  margin-left: 5px; /* Add some space between the text and select box */
+} 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  /* Media query for responsive card sizes */
  @media (max-width: 768px) {
   #card_container {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -139,11 +196,13 @@
 
 
 .pagebtn{
-  width: 50px;
+  width: 60px;
+ 
    
 }
 #pagination_btn{
   left: 200px;
   display: flex;
   justify-content: center;
+  gap: 10px;
 }
