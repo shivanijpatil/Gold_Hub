@@ -1,4 +1,5 @@
 let card_container = document.getElementById("card_container");
+let sortSelect = document.getElementById("sortSelect");
 let url = `https://pixel-prerana-2345.onrender.com/products?_page=1&_limit=10`;
 let pagination_btn = document.getElementById("pagination_btn");
 let products = [];
@@ -31,9 +32,9 @@ async function loadFetchdata() {
 }
 
 ///pagination start
-async function fetchData(link) {
+async function fetchData(link, query) {
   try {
-    let res = await fetch(link);
+    let res = await fetch(`${link}${query || ""}`);
     let dat = await res.json();
     console.log(dat);
     //for pagination 
@@ -64,6 +65,17 @@ async function fetchData(link) {
   } catch (err) { console.log(err) }
 }
 fetchData(url);
+
+//sorting function
+sortSelect.addEventListener('change', () => {
+  if (sortSelect.value == "lowTohigh") {
+    pagination_btn.innerHTML = "";
+    fetchData(`${url}&_page=1&_limit=16`, "&_sort=Price&_order=asc");
+  } else {
+    pagination_btn.innerHTML = "";
+    fetchData(`${url}&_page=1&_limit=16`, "&_sort=Price&_order=desc")
+  }
+})
 
 
 // let productsString = JSON.stringify(products);
@@ -150,11 +162,20 @@ function card_creator(element) {
   let button = document.createElement("button");
   button.classList.add("check-delivery-button");
   button.innerText = "Check Delivery Date";
-
+  // 
   // Add event listener to navigate to productinfo.html on button click
-  // button.addEventListener("click", () => {
-  //   window.location.href = `productinfo.html?id=${element.id}`;
-  // });
+  button.addEventListener("click", () => {
+    window.location.href = url;
+  });
+
+//   document.getElementById('button').addEventListener('click', function() {
+//     // Retrieve the value to store
+//     var valueToStore = document.getElementById('valueInput').value;
+
+//     // Store the value in local storage
+//     localStorage.setItem('button', valueToStore);
+// });
+
 
   card_action.append(button);
 
@@ -227,6 +248,8 @@ function create_card(data) {
 
 
 
+
+
 // button.addEventListener('click', () => {
 //   let CartData = [];
 //   if (localStorage.getItem("CartData")!== null) {
@@ -245,59 +268,3 @@ function create_card(data) {
 //   localStorage.setItem("CartData", JSON.stringify(CartData));
 // });
 
-// function handleScroll() {
-//   if (
-//     window.innerHeight + window.scrollY >= document.body.offsetHeight &&
-//     !isLoading
-//   ) {
-//     loadFetchdata();
-//   }
-// }
-
-// window.addEventListener("scroll", handleScroll);
-
-// document.getElementById("sortSelect").addEventListener("change", function () {
-//   let sortValue = this.value;
-//   let sortedProducts = [];
-
-//   switch (sortValue) {
-//     case "bestMatches":
-//       sortedProducts = products;
-//       break;
-//     case "bestSellers":
-//       sortedProducts = products.filter((product) => product.bestSeller);
-//       break;
-//     case "newArrivals":
-//       sortedProducts = products.filter((product) => product.newArrival);
-//       break;
-//     case "popularity":
-//       sortedProducts = products.sort((a, b) => b.popularity - a.popularity);
-//       break;
-//     case "priceLowToHigh":
-//       sortedProducts = products.sort((a, b) => a.Price - b.Price);
-//       break;
-//     case "priceHighToLow":
-//       sortedProducts = products.sort((a, b) => b.Price - a.Price);
-//       break;
-//     default:
-//       sortedProducts = products;
-//   }
-
-//   card_container.innerHTML = "";
-//   create_card(sortedProducts);
-// });
-
-// // search addEventListener
-
-// function create_card(data) {
-//   let searchInput = document
-//     .getElementById("searchInIphone")
-//     .value.toLowerCase();
-
-//   data.forEach((element) => {
-//     if (element.Title.toLowerCase().includes(searchInput)) {
-//       let card = card_creator(element);
-//       card_container.append(card);
-//     }
-//   });
-// }
