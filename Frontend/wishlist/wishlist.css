@@ -3,8 +3,12 @@ body{
 	
 	font-family: 'Poppins', sans-serif;
 }
-*{
+/* *{
 	box-sizing: border-box;
+} */
+.wishlist_cards{
+    display: flex;
+    flex-wrap: wrap;
 }
 .wishlist_container{
     width: 75%;
@@ -31,16 +35,86 @@ body{
 .wishlist-items{
     height: 60%;
     /* background-color: blueviolet; */
-    width: 20%;
+    width: 25%;
     margin-top: -10px;
     padding: 0;
     border-right:1px solid rgb(137, 137, 137);
 }
-.wishlist-items h5 {
+.wishlist-items p {
+    font-weight: 90rem;
     margin: 0;
-    padding: 20px;
+    padding: 15px;
     border-bottom: 1px solid rgb(126, 124, 124);
-  }
-  .wishlist-items h5 :hover{
     cursor: pointer;
+    transition: transform 0.3s ease;
   }
+  .wishlist-items p:hover{
+    color: #8b3436;
+    transform: scale(1.02); 
+  }
+
+.initialwishlist{
+    display: flex;
+    gap: 25%;
+}
+
+.wishlistImage{
+    width: 100%;
+}
+
+.cardwishlist{
+    /* border: 2px solid rgb(77, 77, 77); */
+    white-space: nowrap;
+    padding: 15px;
+    line-height: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.wishlist-cards{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+   column-gap: 5%;
+    row-gap: 2%;
+    width: 70%;
+    padding: 5%;
+    margin-top: 30px;
+    margin-left: -8%;
+}
+.titleWishlistCart{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1; /* Limit to 1 lines */
+    -webkit-box-orient: vertical;
+    font-size: 10px;
+    
+}
+
+.detailwish{
+    margin-top: 30px;
+}
+.removeBtnWish,.moveTocartBtn {
+    border: none;
+    background-color: #f2e9e9;
+    color: #8b3436;
+    transition: transform 0.6s ease; /* Added transition for smoother animation */
+}
+
+.removeBtnWish:hover,
+.removeBtnWish:active ,.moveTocartBtn:hover,.moveTocartBtn:active {
+    border:1px solid #8b3436;
+    color: #591d1f;
+    background-color: #f6eded;
+    transform: scale(0.95); /* Apply a slight zoom out effect */
+}
+
+/* .moveTocartBtn{
+    border: none;
+    background-color: #f2e9e9;
+    color: #8b3436;
+} */
+.borderLineBtn{
+    color: #8b3436;
+}
+
+

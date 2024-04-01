@@ -99,14 +99,15 @@ body{
 	max-width: 75%;
 	margin:auto;
 padding: 10px;
+
 }
 .footer-logoes a {
 	color: 
 	#8b3436;
 	font-size: 40px;
 	margin: 5px;
-	
 }
+
 .fooeter-term-condition  :hover{
 color: #5d2325;
 }
