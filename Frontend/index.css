@@ -1,3 +1,11 @@
+body {
+  color: black; /* Set the default text color to black */
+}
+#startdata {
+  background-color: rgb(252, 249, 249);
+  margin-top: 0.5%;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -26,7 +34,6 @@
   margin-top: 10px;
   margin-right: 20px; /* Reduce the margin-right for better alignment */
   margin-left: 5%;
-  
 }
 
 .filter .icon {
@@ -42,29 +49,49 @@
 
 .sort select {
   margin-left: 5px; /* Add some space between the text and select box */
-} 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- /* Media query for responsive card sizes */
- @media (max-width: 768px) {
+}
+
+/* Additional styles for the hover effect */
+.hover-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  margin-top: 250px;
+  margin-right: 500px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  z-index: 1;
+}
+
+.right-section:hover .hover-content {
+  display: block;
+}
+
+/* Add this style for the dropdown content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Show the dropdown content on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Media query for responsive card sizes */
+@media (max-width: 768px) {
   #card_container {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 480px) {
   #card_container {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: 1fr;
   }
 }
 
@@ -102,6 +129,7 @@
 
 .heart-icon {
   position: absolute;
+
   top: 10px;
   right: 10px;
   display: flex;
@@ -109,7 +137,7 @@
   justify-content: center;
   align-items: center;
   color: #fff;
-  background-color: #f00;
+  /* background-color: #f00; */
   border-radius: 50%;
   width: 40px;
   height: 40px;
@@ -176,7 +204,6 @@
   margin: 5%;
   margin-top: 3%;
   display: grid;
-  /* justify-content: space-around; */
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
 }
@@ -191,16 +218,12 @@
   width: 100%;
   max-width: 400px;
   box-shadow: 0px 0px 10px #ef7a88;
-
 }
 
-
-.pagebtn{
+.pagebtn {
   width: 60px;
- 
-   
 }
-#pagination_btn{
+#pagination_btn {
   left: 200px;
   display: flex;
   justify-content: center;

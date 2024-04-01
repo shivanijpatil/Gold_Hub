@@ -22,7 +22,7 @@ async function loadFetchdata() {
       return;
     }
     products = [...products, ...newProducts];
-    create_card(newProducts);
+    card_container(newProducts);
     page++;
     isLoading = false;
   } catch (error) {
@@ -68,36 +68,21 @@ fetchData(url);
 
 //sorting function
 sortSelect.addEventListener('change', () => {
-  if (sortSelect.value == "lowTohigh") {
+  if (sortSelect.value == "priceLowToHigh") {
     pagination_btn.innerHTML = "";
-    fetchData(`${url}&_page=1&_limit=16`, "&_sort=Price&_order=asc");
-  } else {
+    fetchData(`${url}`, "&_sort=Price");
+  } else if (sortSelect.value == "priceHighToLow") {
     pagination_btn.innerHTML = "";
-    fetchData(`${url}&_page=1&_limit=16`, "&_sort=Price&_order=desc")
+    fetchData(`${url}`, "&_sort=Price&_order=desc")
   }
 })
 
 
-// let productsString = JSON.stringify(products);
-// localStorage.setItem('products', productsString);
-// let productsString = localStorage.getItem('products');
-// let products = JSON.parse(productsString);
-
-// // To use the products array
-// create_card(products);
-// card_container.addEventListener("click", (event) => {
-//   console.log("Card container clicked!");
-//   console.log("Event target:", event.target);
-//   console.log("Card element:", event.target.closest(".card"));
-// });
-// window.addEventListener("scroll", () => {
-//   console.log("Window scrolled!");
-// });
 
 
 
 
-
+//card creation loop
 function create_card(data) {
   data.forEach((element) => {
     let card = card_creator(element);
@@ -105,6 +90,7 @@ function create_card(data) {
   });
 }
 
+// card creation part
 function card_creator(element) {
   let card = document.createElement("div");
   card.classList.add("card");
@@ -162,19 +148,12 @@ function card_creator(element) {
   let button = document.createElement("button");
   button.classList.add("check-delivery-button");
   button.innerText = "Check Delivery Date";
-  // 
+  
   // Add event listener to navigate to productinfo.html on button click
   button.addEventListener("click", () => {
     window.location.href = url;
   });
 
-//   document.getElementById('button').addEventListener('click', function() {
-//     // Retrieve the value to store
-//     var valueToStore = document.getElementById('valueInput').value;
-
-//     // Store the value in local storage
-//     localStorage.setItem('button', valueToStore);
-// });
 
 
   card_action.append(button);
@@ -185,7 +164,7 @@ function card_creator(element) {
 
   return card;
 }
-window.scrollTo(0, 0);
+// window.scrollTo(0, 0);
 
 
 
@@ -233,38 +212,28 @@ document.getElementById("sortSelect").addEventListener("change", function () {
 
 // search addEventListener
 
-function create_card(data) {
-  let searchInput = document
-    .getElementById("searchInIphone")
-    .value.toLowerCase();
+// function create_card(data) {
+//   let searchInput = document
+//     .getElementById("searchInIphone")
+//   // .value.toLowerCase();
 
-  data.forEach((element) => {
-    if (element.Title.toLowerCase().includes(searchInput)) {
-      let card = card_creator(element);
-      card_container.append(card);
-    }
-  });
-}
+//   data.forEach((element) => {
+//     if (element.Title.toLowerCase().includes(searchInput)) {
+//       let card = card_creator(element);
+//       card_container.append(card);
+//     }
+//   });
+// }
+
+// document
+//   .getElementById("searchInIphone")
+//   .addEventListener("input", function () {
+//     card_container.innerHTML = "";
+//     create_card(products);
+//   });
 
 
 
 
 
-// button.addEventListener('click', () => {
-//   let CartData = [];
-//   if (localStorage.getItem("CartData")!== null) {
-//       CartData = JSON.parse(localStorage.getItem("CartData"));
-//   }
-//   let flag = false;
-//   CartData.forEach(ele => {
-//       if (ele.ID === data.ID) {
-//           ele.quantity++;
-//           flag = true;
-//       }
-//   })
-//   if (!flag) {
-//       CartData.push({...data, quantity: 1})
-//   }
-//   localStorage.setItem("CartData", JSON.stringify(CartData));
-// });
 
