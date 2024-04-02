@@ -6,16 +6,18 @@
     <title>Document</title>
     <link rel="stylesheet" href="./index.css" />
     <link rel="stylesheet" href="./card.css">
+    <link rel="stylesheet" href="footer.css">
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
+    <script src="https://kit.fontawesome.com/c767866fe9.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <!-- navbar started -->
     <div class="parent">
-      <div>
-        <img id="GHlogo" src="./gh logo.jpeg" alt="logo" />
+      <div >
+        <img width="66%" id="GHlogo" src="./gh logo.jpeg" alt="logo"  />
       </div>
       <div>
         <input
@@ -27,23 +29,23 @@
       </div>
       <div>
         <a id="navdiv" class="nav-icon" href="#"
-          ><span class="material-symbols-outlined">diamond</span>
+          ><span class="material-symbols-outlined" style="margin:auto">diamond</span>
           <p class="logoName">DIAMOND</p></a
         >
         <a class="nav-icon" href="#"
-          ><span class="material-symbols-outlined">storefront</span>
+          ><span class="material-symbols-outlined"style="margin:auto">storefront</span>
           <p class="logoName">STORES</p></a
         >
         <a class="nav-icon" href="#"
-          ><span class="material-symbols-outlined">person</span>
+          ><span class="material-symbols-outlined"style="margin:auto">person</span>
           <p class="logoName">ACCOUNT</p></a
         >
-        <a id="" class="nav-icon" href="#"
-          ><span class="material-symbols-outlined">favorite</span>
+        <a id="" class="nav-icon" href="wishlist.html"
+          ><span class="material-symbols-outlined"style="margin:auto">favorite</span>
           <p class="logoName">WISHLIST</p></a
         >
         <a class="nav-icon" href="#"
-          ><span class="material-symbols-outlined">shopping_cart</span>
+          ><span class="material-symbols-outlined"style="margin:auto">shopping_cart</span>
           <p class="logoName">CART</p></a
         >
       </div>
@@ -442,6 +444,76 @@
     <div id="card_container"></div>
     <div id="pagination_btn"></div>
    <!-- card part end -->
+
+   <!-- Footer Start -->
+   <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-row">
+        <div class="footer-col">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="#">Delivery Information</a></li>
+            <li><a href="#">International Shipping</a></li>
+            <li><a href="#">Payment Options</a></li>
+            <li><a href="#">Track your Order</a></li>
+                   <li><a href="#">Returns</a></li>
+                   <li><a href="#">Find a Store</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Information</h4>
+          <ul>
+            <li><a href="#"> Careers</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Offers &amp; Contest Details</a></li>
+            <li><a href="#">Help &amp; FAQs</a></li>
+            <li><a href="#" >About <span style="color:#8b3436 ;">Gold Hub</span></a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <ul>
+            <li><a href="#">Write to Us</a></li>
+            <li><a href="#">1800-266-0123</a></li>
+            <li><a href="#">Chat with Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Download the Gold Hub App Now</h4>
+               <div class="QrScan">
+                   <img width="70%" src="./images/ScannerLOGO.jpeg">
+               </div>
+       <div class="footer_play_btn" style="display: flex; margin-left: -5px;">
+                   <button style="background:none; border: none; cursor: pointer;"><img width="80%"  src="https://in.sugarcosmetics.com/apple-store.png" alt="apple-store"></button>
+                   <button style="background:none;  border: none;cursor: pointer;"><img width="80%"  src="https://in.sugarcosmetics.com/playstore.png" alt="playstore"></button>
+                   
+               </div>
+          <div class="social-links">
+                   <p style="font-weight: bolder;color: #8b3436;">Follow Us On</p>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+         <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+<div class="footer-logoes">
+ <a href="#"><i class="fa-brands fa-cc-visa"></i></a>
+ <a href="#"><i class="fa-brands fa-cc-mastercard"></i></a>
+ <a href="#"><i class="fa-brands fa-cc-paypal"></i></a>
+ 
+ <span style="color: #8b3436; font-size: small;margin-left: 40%;"> 
+  © 2024 Titan Company Limited. All Rights Reserved.</span>
+</div> 
+<div class="fooeter-term-condition" >
+ <a style="text-decoration: none; color: #8b3436; font-size: 16px;;" href="#">Terms &Conditions | Privacy Policy</a>
+ 
+ </div>
+ </footer>
+
+   <!-- Footer End -->
   </body>
+  <script src="footer.js"></script>
+  <script src="https://kit.fontawesome.com/c767866fe9.js" crossorigin="anonymous"></script>
   <script src="./card.js"></script>
 </html>

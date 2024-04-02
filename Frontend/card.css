@@ -179,7 +179,7 @@ body {
   .card-price {
     font-size: 18px;
     font-weight: bold;
-    color: rgb(233, 83, 83);
+    color:#8b3436;
     margin-bottom: 16px;
   }
   
@@ -189,7 +189,7 @@ body {
   }
   
   .check-delivery-button {
-    background-color: #d34444ec;
+    background-color: #8b3436;
     color: white;
     padding: 8px 16px;
     border: none;
@@ -222,6 +222,7 @@ body {
   
   .pagebtn {
     width: 60px;
+    margin-bottom: 20px;
   }
   #pagination_btn {
     left: 200px;
