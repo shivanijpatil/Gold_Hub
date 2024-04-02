@@ -1,4 +1,5 @@
 let card_container = document.getElementById("card_container");
+let sortSelect = document.getElementById("sortSelect");
 let url = `https://pixel-prerana-2345.onrender.com/products?_page=1&_limit=10`;
 let pagination_btn = document.getElementById("pagination_btn");
 let products = [];
@@ -21,7 +22,7 @@ async function loadFetchdata() {
       return;
     }
     products = [...products, ...newProducts];
-    create_card(newProducts);
+    card_container(newProducts);
     page++;
     isLoading = false;
   } catch (error) {
@@ -31,9 +32,9 @@ async function loadFetchdata() {
 }
 
 ///pagination start
-async function fetchData(link) {
+async function fetchData(link, query) {
   try {
-    let res = await fetch(link);
+    let res = await fetch(`${link}${query || ""}`);
     let dat = await res.json();
     console.log(dat);
     //for pagination 
@@ -65,27 +66,23 @@ async function fetchData(link) {
 }
 fetchData(url);
 
-
-// let productsString = JSON.stringify(products);
-// localStorage.setItem('products', productsString);
-// let productsString = localStorage.getItem('products');
-// let products = JSON.parse(productsString);
-
-// // To use the products array
-// create_card(products);
-// card_container.addEventListener("click", (event) => {
-//   console.log("Card container clicked!");
-//   console.log("Event target:", event.target);
-//   console.log("Card element:", event.target.closest(".card"));
-// });
-// window.addEventListener("scroll", () => {
-//   console.log("Window scrolled!");
-// });
+//sorting function
+sortSelect.addEventListener('change', () => {
+  if (sortSelect.value == "priceLowToHigh") {
+    pagination_btn.innerHTML = "";
+    fetchData(`${url}`, "&_sort=Price");
+  } else if (sortSelect.value == "priceHighToLow") {
+    pagination_btn.innerHTML = "";
+    fetchData(`${url}`, "&_sort=Price&_order=desc")
+  }
+})
 
 
 
 
 
+
+//card creation loop
 function create_card(data) {
   data.forEach((element) => {
     let card = card_creator(element);
@@ -93,6 +90,7 @@ function create_card(data) {
   });
 }
 
+// card creation part
 function card_creator(element) {
   let card = document.createElement("div");
   card.classList.add("card");
@@ -150,11 +148,13 @@ function card_creator(element) {
   let button = document.createElement("button");
   button.classList.add("check-delivery-button");
   button.innerText = "Check Delivery Date";
-
+  
   // Add event listener to navigate to productinfo.html on button click
-  // button.addEventListener("click", () => {
-  //   window.location.href = `productinfo.html?id=${element.id}`;
-  // });
+  button.addEventListener("click", () => {
+    window.location.href = url;
+  });
+
+
 
   card_action.append(button);
 
@@ -164,81 +164,58 @@ function card_creator(element) {
 
   return card;
 }
-window.scrollTo(0, 0);
 
 
 
-// button.addEventListener('click', () => {
-//   let CartData = [];
-//   if (localStorage.getItem("CartData")!== null) {
-//       CartData = JSON.parse(localStorage.getItem("CartData"));
-//   }
-//   let flag = false;
-//   CartData.forEach(ele => {
-//       if (ele.ID === data.ID) {
-//           ele.quantity++;
-//           flag = true;
-//       }
-//   })
-//   if (!flag) {
-//       CartData.push({...data, quantity: 1})
-//   }
-//   localStorage.setItem("CartData", JSON.stringify(CartData));
-// });
 
-// function handleScroll() {
-//   if (
-//     window.innerHeight + window.scrollY >= document.body.offsetHeight &&
-//     !isLoading
-//   ) {
-//     loadFetchdata();
-//   }
-// }
+function handleScroll() {
+  if (
+    window.innerHeight + window.scrollY >= document.body.offsetHeight &&
+    !isLoading
+  ) {
+    loadFetchdata();
+  }
+}
 
-// window.addEventListener("scroll", handleScroll);
+window.addEventListener("scroll", handleScroll);
 
-// document.getElementById("sortSelect").addEventListener("change", function () {
-//   let sortValue = this.value;
-//   let sortedProducts = [];
+document.getElementById("sortSelect").addEventListener("change", function () {
+  let sortValue = this.value;
+  let sortedProducts = [];
 
-//   switch (sortValue) {
-//     case "bestMatches":
-//       sortedProducts = products;
-//       break;
-//     case "bestSellers":
-//       sortedProducts = products.filter((product) => product.bestSeller);
-//       break;
-//     case "newArrivals":
-//       sortedProducts = products.filter((product) => product.newArrival);
-//       break;
-//     case "popularity":
-//       sortedProducts = products.sort((a, b) => b.popularity - a.popularity);
-//       break;
-//     case "priceLowToHigh":
-//       sortedProducts = products.sort((a, b) => a.Price - b.Price);
-//       break;
-//     case "priceHighToLow":
-//       sortedProducts = products.sort((a, b) => b.Price - a.Price);
-//       break;
-//     default:
-//       sortedProducts = products;
-//   }
+  switch (sortValue) {
+    case "bestMatches":
+      sortedProducts = products;
+      break;
+    case "bestSellers":
+      sortedProducts = products.filter((product) => product.bestSeller);
+      break;
+    case "newArrivals":
+      sortedProducts = products.filter((product) => product.newArrival);
+      break;
+    case "popularity":
+      sortedProducts = products.sort((a, b) => b.popularity - a.popularity);
+      break;
+    case "priceLowToHigh":
+      sortedProducts = products.sort((a, b) => a.Price - b.Price);
+      break;
+    case "priceHighToLow":
+      sortedProducts = products.sort((a, b) => b.Price - a.Price);
+      break;
+    default:
+      sortedProducts = products;
+  }
 
-//   card_container.innerHTML = "";
-//   create_card(sortedProducts);
-// });
+  card_container.innerHTML = "";
+  create_card(sortedProducts);
+});
 
-// // search addEventListener
 
-// function create_card(data) {
-//   let searchInput = document
-//     .getElementById("searchInIphone")
-//     .value.toLowerCase();
 
-//   data.forEach((element) => {
-//     if (element.Title.toLowerCase().includes(searchInput)) {
-//       let card = card_creator(element);
-//       card_container.append(card);
-//     }
-//   });
-// }
+
+
+
+
+
+
+
