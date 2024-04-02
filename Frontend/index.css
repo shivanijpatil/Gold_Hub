@@ -136,7 +136,8 @@ body {
   div>a {
     text-decoration: none;
     font-size: 0.9rem;
-    font-weight: 300;
+    font-weight: 600;
+    color: #832729;
   }
 
   >.ab {
@@ -149,7 +150,7 @@ body {
     text-decoration: none;
     text-transform: uppercase;
   }
-
+  
   /* >.ab:hover {
       color: #803619;
       i{
@@ -283,3 +284,8 @@ body {
 
 }
 /* nav css end */
+
+.navHoverText{
+  color: #832729;
+  font-weight: 500;
+}
