@@ -10,7 +10,7 @@ let isLoading = false;
 // loadFetchdata();
 
 async function loadFetchdata() {
-  if (isLoading) return;
+  if (isLoading) return;""
   isLoading = true;
 
   try {
