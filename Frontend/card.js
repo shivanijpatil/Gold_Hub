@@ -127,9 +127,9 @@ function card_creator(element) {
 
   card_img.append(img, second_img, heart_icon, span);
 
-  let card_container = document.createElement("div");
+  let card_container1 = document.createElement("div");
 
-  card_container.classList.add("card-content");
+  card_container1.classList.add("card-content");
 
   let card_title = document.createElement("div");
 
@@ -158,9 +158,9 @@ function card_creator(element) {
 
   card_action.append(button);
 
-  card_container.append(card_title, card_price, card_action);
+  card_container1.append(card_title, card_price, card_action);
 
-  card.append(card_img, card_container);
+  card.append(card_img, card_container1);
 
   return card;
 }

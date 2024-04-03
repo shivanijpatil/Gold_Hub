@@ -2,7 +2,15 @@
 body{
 	
 	font-family: 'Poppins', sans-serif;
+  
 }
+
+@media (min-width: 1200px) {
+    .wishlist_container,.nav,.parent,.footer{
+      max-width: 1500px;
+      margin: auto;
+    }
+  }
 /* *{
 	box-sizing: border-box;
 } */
@@ -38,9 +46,10 @@ body{
 .wishlist-items{
     height: 55%;
     /* background-color: blueviolet; */
-    width: 25%;
+    width: 40%;
     /* margin-top: -7px; */
     padding: 0;
+    
     border-right:1px solid rgb(137, 137, 137);
 }
 .wishlist-items p {
@@ -67,21 +76,24 @@ body{
 
 .cardwishlist{
     /* border: 2px solid rgb(77, 77, 77); */
-    white-space: nowrap;
-    padding: 15px;
-    /* line-height: 10px; */
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    
+        width: 230px;
+        /* border: 2px solid rgb(77, 77, 77); */
+        /* white-space: nowrap;
+        overflow: hidden; */
+        /* text-overflow: ellipsis; */
+        padding: 15px;
+        border-radius: 10px;
+        /* line-height: 10px; */
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    
 }
 
 .wishlist-cards{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-   column-gap: 5%;
-    row-gap: 2%;
-    width: 70%;
-    padding: 5%;
-    margin-top: 30px;
-    margin-left: -8%;
+    margin-top: 100px;
+    gap:30px;
 }
 .titleWishlistCart{
     overflow: hidden;
@@ -95,12 +107,16 @@ body{
 
 .detailwish{
     margin-top: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .removeBtnWish,.moveTocartBtn {
     border: none;
     background-color: #f2e9e9;
     color: #8b3436;
     transition: transform 0.6s ease; /* Added transition for smoother animation */
+    margin-left: 5px ;
 }
 
 .removeBtnWish:hover,
@@ -118,6 +134,7 @@ body{
 } */
 .borderLineBtn{
     color: #8b3436;
+    margin-left: 5px;
 }
 
 
