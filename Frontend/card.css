@@ -125,7 +125,7 @@ body {
   }
   
   .card-image {
-    width: 360px;
+    width: 100%;
     overflow: hidden;
     position: relative;
   }
@@ -197,6 +197,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between; */
+    /* width: 50%; */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -266,7 +267,7 @@ body {
     margin-top: 3%;
     display: grid;
     /* justify-content: space-around; */
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
   }
   
