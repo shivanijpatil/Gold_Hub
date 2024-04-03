@@ -82,6 +82,7 @@ Frontend  |  Backend
 <hr style="border: 4px solid black">
 
 ## Video Walkthrough of the project
+- https://youtu.be/L-GE8XrQD5I
 
 ## Technology Stack
 
