@@ -19,7 +19,7 @@ body{
     flex-wrap: wrap;
 }
 .wishlist_container{
-    width: 75%;
+    width: 80%;
     margin:auto;
 	padding-bottom: 10px;
 }
@@ -41,12 +41,12 @@ body{
 }
 .wishlist-items-cards{
     display: flex;
-    
+        
 }
 .wishlist-items{
     height: 55%;
     /* background-color: blueviolet; */
-    width: 40%;
+    width: 35%;
     /* margin-top: -7px; */
     padding: 0;
     
@@ -91,7 +91,7 @@ body{
 
 .wishlist-cards{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     margin-top: 100px;
     gap:30px;
 }

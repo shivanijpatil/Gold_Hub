@@ -100,6 +100,7 @@ function card_creator(element) {
   card_img.classList.add("card-image");
 
   let img = document.createElement("img");
+  
   img.src = element.Img[0];
   img.alt = element.Title;
 
