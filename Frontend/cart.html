@@ -3,69 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wishlist</title>
-    <link rel="stylesheet" href="wishlist.css">
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="footer.css">
-    <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-  />
+    <title>Document</title>
+    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="./index.css" />
+  <link rel="stylesheet" href="./card.css">
+  <link rel="stylesheet" href="footer.css">
+  <link rel="stylesheet" href="popup.css">
+  <link rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <script src="https://kit.fontawesome.com/c767866fe9.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <!-- Nav S -->
     <div class="parent">
-        
-        <a href="home.html">
-            <div>
-                <img width="79%" id="GHlogo" src="./gh logo.jpeg" alt="logo" style="margin-top: 9px;" />
-              </div>
-        </a>
         <div>
-          <input
-            id="searchmainpage"
-            type="text"
-            placeholder="Search for Gold Jewellery, Diamond Jewellery and more..."
-            style="padding-left: 10px"
-          /><i class="fa-solid fa-magnifying-glass" style="color: grey"></i>
+          <img width="66%" id="GHlogo" src="./gh logo.jpeg" alt="logo" />
         </div>
         <div>
-          <a id="navdiv" class="nav-icon" href="#"
-            ><span class="material-symbols-outlined" style="margin: auto;">diamond</span>
-            <p class="logoName">DIAMOND</p></a
-          >
-          <a class="nav-icon" href="#"
-            ><span class="material-symbols-outlined"  style="margin: auto;">storefront</span>
-            <p class="logoName">STORES</p></a
-          >
-          <a class="nav-icon" href="#"
-            ><span class="material-symbols-outlined"  style="margin: auto;">person</span>
-            <p class="logoName">ACCOUNT</p></a
-          >
-          <a id="" class="nav-icon" href="#"
-            ><span class="material-symbols-outlined"  style="margin: auto;">favorite</span>
-            <p class="logoName">WISHLIST</p></a
-          >
-          <a class="nav-icon" href="cart.html"
-            ><span class="material-symbols-outlined" style="margin: auto;">shopping_cart</span>
-            <p class="logoName">CART</p></a
-          >
+          <input id="searchmainpage" type="text" placeholder="Search for Gold Jewellery, Diamond Jewellery and more..."
+            style="padding-left: 10px" /><i class="fa-solid fa-magnifying-glass" style="color: grey"></i>
+        </div>
+        <div>
+          <a id="navdiv" class="nav-icon" href="#"><span class="material-symbols-outlined"
+              style="margin:auto">diamond</span>
+            <p class="logoName">DIAMOND</p>
+          </a>
+          <a class="nav-icon" href="#"><span class="material-symbols-outlined" style="margin:auto">storefront</span>
+            <p class="logoName">STORES</p>
+          </a>
+          <a class="nav-icon" href="#"><span class="material-symbols-outlined" style="margin:auto">person</span>
+            <p class="logoName" id="login-button">LOGIN</p>
+            <!-- <button id="login-button" class="logoName">Login</button> -->
+          </a>
+        <!-- pop up code start-->
+        
+        <!-- popup -->
+        <div id="popup" class="popup">
+            <span id="emailgetfromlocal"></span>
+            <span class="close" onclick="closePopup()">
+                <span class="material-symbols-outlined" style="color: black;">close</span>
+           
+              </span>
+            <br><br>
+            <div style="margin-top: 50px; text-align: center;">
+                <a class="log-out" href="home.html" id="logout-link">Log out</a>
+            </div>
+        </div>
+        <!-- pop up code end-->
+    
+    
+          
+          <a id="" class="nav-icon" href="wishlist.html"><span class="material-symbols-outlined"
+              style="margin:auto">favorite</span>
+            <p class="logoName">WISHLIST</p>
+          </a>
+          <a class="nav-icon" href="#"><span class="material-symbols-outlined" style="margin:auto">shopping_cart</span>
+            <p class="logoName">CART</p>
+          </a>
         </div>
       </div>
       <!-- <div class="parentIphone">
-        <input
-          id="searchInIphone"
-          type="text"
-          placeholder="Search for Gold Jewellery, Diamond..."
-          style="padding-left: 10px"
-        /><i class="fa-solid fa-magnifying-glass" style="color: grey"></i>
-      </div> -->
-  
+          <input
+            id="searchInIphone"
+            type="text"
+            placeholder="Search for Gold Jewellery, Diamond..."
+            style="padding-left: 10px"
+          /><i class="fa-solid fa-magnifying-glass" style="color: grey"></i>
+        </div> -->
+    
       <!-- nav bottom start -->
       <div class="nav">
         <!-- <input class="menu-btn" type="checkbox" id="menu-btn" />
-        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label> -->
+          <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label> -->
         <!-- ALL JEWELLERY -->
         <div class="aa ab"><a class="navOptions" href="#">ALL JEWELLERY</a></div>
         <div class="dropdown1">
@@ -83,7 +93,7 @@
             <li><a class="navfeatures" href="#">NECKLACES</a></li>
             <li><a class="navfeatures" href="#">NECKLACE SET</a></li>
           </ul>
-  
+    
           <ul>
             <li>
               <a href="#"><span class="navHoverText">GIFT CARD</span></a>
@@ -93,7 +103,7 @@
             <li><a class="navfeatures" href="#">PENDANTS & EARRING SET</a></li>
             <li><a class="navfeatures" href="#">GOLD COINS</a></li>
           </ul>
-  
+    
           <ul>
             <li>
               <a href="#"><span class="navHoverText">GENDER</span></a>
@@ -102,20 +112,22 @@
             <li><a class="navfeatures" href="#">MEN</a></li>
             <li><a class="navfeatures" href="#">KIDS & TEENS</a></li>
           </ul>
-  
+    
           <ul>
             <li>
               <a href="#"><span class="navHoverText">PRICE BAND</span></a>
             </li>
-            <li><a class="navfeatures" href="#"><25</a></li>
+            <li><a class="navfeatures" href="#">
+                <25< /a>
+            </li>
             <li><a class="navfeatures" href="#">25k-50k</a></li>
             <li><a class="navfeatures" href="#">50k-1L</a></li>
             <li><a class="navfeatures" href="#">1L & ABOVE</a></li>
           </ul>
         </div>
-  
+    
         <!--GOLD  -->
-  
+    
         <div class="ab"><a class="navOptions" href="#">GOLD</a></div>
         <div class="dropdown1">
           <ul>
@@ -143,7 +155,7 @@
             <li><a class="navfeatures" href="#">NECKLACE SET</a></li>
             <li><a class="navfeatures" href="#">PENDANTS & EARRINGS SETS</a></li>
           </ul>
-  
+    
           <ul>
             <li>
               <a href="#"><span class="navHoverText">MEN</span></a>
@@ -155,7 +167,7 @@
             <li><a class="navfeatures" href="#">PANDANTS</a></li>
             <li><a class="navfeatures" href="#">RINGS</a></li>
           </ul>
-  
+    
           <ul>
             <li>
               <a href="#"><span class="navHoverText">KIDS</span></a>
@@ -167,7 +179,7 @@
             <li><a class="navfeatures" href="#">CHAIN</a></li>
             <li><a class="navfeatures" href="#">RINGS</a></li>
           </ul>
-  
+    
           <ul>
             <li>
               <a href="#"><span class="navHoverText">GOLD COIN</span></a>
@@ -187,7 +199,7 @@
             <li><a class="navfeatures" href="#">100 GRAM</a></li>
           </ul>
         </div>
-  
+    
         <!-- DIAMOND -->
         <div class="ab"><a class="navOptions" href="#">DIAMOND </a></div>
         <div class="dropdown1">
@@ -217,7 +229,7 @@
             </li>
             <li><a class="navfeatures" href="#">ENGAGEMENT RINGS</a></li>
           </ul>
-  
+    
           <ul>
             <li>
               <a href="#"><span class="navHoverText">PENDANTS</span></a>
@@ -227,18 +239,20 @@
             <li><a class="navfeatures" href="#">PENDANTS & EARRINGS SET</a></li>
             <li><a class="navfeatures" href="#">TRADITIONAL</a></li>
           </ul>
-  
+    
           <ul>
             <li>
               <a href="#"><span class="navHoverText">PRICE</span></a>
             </li>
-            <li><a class="navfeatures" href="#"><25</a></li>
+            <li><a class="navfeatures" href="#">
+                <25< /a>
+            </li>
             <li><a class="navfeatures" href="#">25k-50k</a></li>
             <li><a class="navfeatures" href="#">50k-1L</a></li>
             <li><a class="navfeatures" href="#">1L & ABOVE</a></li>
           </ul>
         </div>
-  
+    
         <!-- EARRINGS -->
         <div class="ab"><a class="navOptions" href="#">EARRINGS </a></div>
         <div class="dropdown1">
@@ -251,7 +265,7 @@
             <li><a class="navfeatures" href="#">JHUMKAS</a></li>
             <li><a class="navfeatures" href="#">STUDS & TOPS</a></li>
           </ul>
-  
+    
           <ul>
             <li>
               <a href="#"><span class="navHoverText">METAL & STONES</span></a>
@@ -262,7 +276,7 @@
             <li><a class="navfeatures" href="#">PLATINUM METAL</a></li>
             <li><a class="navfeatures" href="#">ROSE GOLD</a></li>
           </ul>
-  
+    
           <ul>
             <li>
               <a href="#"><span class="navHoverText">OCCASION</span></a>
@@ -272,17 +286,19 @@
             <li><a class="navfeatures" href="#">WEDDING</a></li>
             <li><a class="navfeatures" href="#">WORK WEAR</a></li>
           </ul>
-  
+    
           <ul>
             <li>
               <a href="#"><span class="navHoverText">PRICE</span></a>
             </li>
-            <li><a class="navfeatures" href="#"><25</a></li>
+            <li><a class="navfeatures" href="#">
+                <25< /a>
+            </li>
             <li><a class="navfeatures" href="#">25k-50k</a></li>
             <li><a class="navfeatures" href="#">50k-1L</a></li>
             <li><a class="navfeatures" href="#">1L & ABOVE</a></li>
           </ul>
-  
+    
           <ul>
             <li>
               <a href="#"><span class="navHoverText">GENDER</span></a>
@@ -291,7 +307,7 @@
             <li><a class="navfeatures" href="#">KIDS & TEENS</a></li>
           </ul>
         </div>
-  
+    
         <!-- RINGS -->
         <div class="ab"><a class="navOptions" href="#">RINGS </a></div>
         <div class="dropdown1">
@@ -307,7 +323,7 @@
             <li><a class="navfeatures" href="#">MEN'S RINGS</a></li>
             <li><a class="navfeatures" href="#">PLATINUM ENGAGEMENT RINGS</a></li>
           </ul>
-  
+    
           <ul>
             <li>
               <a href="#"><span class="navHoverText">BY METAL & STONES</span></a>
@@ -319,24 +335,26 @@
             <li><a class="navfeatures" href="#">SOLITAIRE</a></li>
             <li><a class="navfeatures" href="#">WHITE GOLD</a></li>
           </ul>
-  
+    
           <ul>
             <li>
               <a href="#"><span class="navHoverText">PRICE</span></a>
             </li>
-            <li><a class="navfeatures" href="#"><25</a></li>
+            <li><a class="navfeatures" href="#">
+                <25< /a>
+            </li>
             <li><a class="navfeatures" href="#">25k-50k</a></li>
             <li><a class="navfeatures" href="#">50k-1L</a></li>
             <li><a class="navfeatures" href="#">1L & ABOVE</a></li>
           </ul>
         </div>
-  
+    
         <!-- BESTSELLERS -->
         <div class="ab"><a class="navOptions" href="#">BESTSELLERS </a></div>
-  
+    
         <!-- MIA -->
         <div class="ab"><a class="navOptions" href="#">MIA </a></div>
-  
+    
         <!-- COLLECTIONS -->
         <div class="ab"><a class="navOptions" href="#">COLLECTIONS </a></div>
         <div class="dropdown1">
@@ -347,7 +365,7 @@
             <li><a class="navfeatures" href="#">KAKATIYA</a></li>
             <li><a class="navfeatures" href="#">JOY OF DRESSING</a></li>
           </ul>
-  
+    
           <ul>
             <li><a class="navfeatures" href="#">ENGAGEMENT RINGS</a></li>
             <li><a class="navfeatures" href="#">PRETTY IN PINK</a></li>
@@ -355,7 +373,7 @@
             <li><a class="navfeatures" href="#">IMPRESSIONS OF NATURE</a></li>
             <li><a class="navfeatures" href="#">STUNNING EVERY EAR</a></li>
           </ul>
-  
+    
           <ul>
             <li><a class="navfeatures" href="#">AVEER</a></li>
             <li><a class="navfeatures" href="#">ALEKHYA</a></li>
@@ -364,12 +382,12 @@
             <li><a class="navfeatures" href="#">RIVAAH X TARUN TAHILIANI</a></li>
           </ul>
         </div>
-  
+    
         <!-- WEDDING -->
         <div class="ab"><a class="navOptions" href="#">WEDDING </a></div>
-  
+    
         <!-- GIFTING -->
-        <div class="ab"><a class="navOptions" href="#"> GIFTING</a></div>
+        <div class="ab"><a class="navOptions" href="#">GIFTING</a></div>
         <div class="dropdown1">
           <ul>
             <li><a class="navfeatures" href="#">GIFTS FOR LOVED ONES</a></li>
@@ -377,10 +395,10 @@
             <li><a class="navfeatures" href="#">CORPORATE GIFTING</a></li>
           </ul>
         </div>
-  
+    
         <!-- GOLDEN HARVEST -->
         <div class="ab"><a class="navOptions" href="#">GOLDEN HARVEST</a></div>
-  
+    
         <!-- MORE -->
         <div class="ab"><a class="navOptions" href="#">MORE</a></div>
         <div class="dropdown1">
@@ -396,52 +414,23 @@
           </ul>
         </div>
       </div>
-    <!-- Nav E -->
-    <div class="wishlist_container">
-        <div class="wishlist-home-btn" style="padding: 20px;gap: 20px;">
-            <a href="home.html"><button>Home</button></a>
-            <button >My Account</button>
-            <button style="color: #8b3436;"> Wishlist</button>
-        </div>
-        <h4>My Account</h4>
-        <hr>
-        <div class="wishlist-items-cards">
-            <div class="wishlist-items">
-                <p>Overview</p>
-                    <p>Gold Hub Digital Gold</p>
-                    <p>Personal Information</p>
-                   <p> Address Book</p>
-                    <p style="color: #8b3436; background-color: #f2e9e9;">Wishlist</p>
-                   <p> Order History</p>
-                   <p> Gift Card Balance</p>
-                   <p>NeuPass</p> 
-            </div>
-            <div class="wishlist_sharebtn" >
-                <h3 style="margin-top: 30px;margin-left: 30px;">Wishlist</h3>
-                <!-- <div class="sharewishlist" style="margin-top: -20px;"><button style=" border:1px solid #8b3436; margin-left: 750%; padding:5px; background-color: #f2e9e9; color: #8b3436; ">Share</button></div> -->
-            
-            </div>  
-            <div class="wishlist-cards">
-                            
-                    <div class="initialwishlist" style="display: inline;margin-top: 100px;" >
-                        <!-- <div class="empty-wishlist" style="width: 50%;"> -->
-                            <img src="https://www.tanishq.co.in/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dwca012f6d/images/noWish.jpg" alt="images" style="margin-left: -10px;">
-                         </div> 
-                                           
-                            <div class="empty-wishlist-msg" style="width: 440px; margin-top: 150px;overflow: hidden; line-height: 35px;">
-                                <p style=" color:#8b3436;text-align: center;">Your Wishlist Is Empty !</p>
-                                <p >Add Gold Hub To Your Jewellery Wardrobe</p>
-                                <div class="btnToContinue" style="color: blanchedalmond; background-color: #8b3436;text-align: center; padding: 7px; border-radius: 10px;cursor: pointer;">Continue Shopping</div>
-                            </div>
-                    </div>
-                    <div id="wishlist-card-shows"></div>
-             
-            
+      <!-- nav bottom end -->
+    
+      <!-- cart start -->
+    <div id="cartDiv" >
+        
+        <div id="initial-cart">
+            <div id="initial-bag">
+                <img id="CartBag" src="https://www.tanishq.co.in/on/demandware.static/-/Library-Sites-TanishqSharedLibrary/default/dw39d0b5f4/images/cart/Group14779.svg" alt="CartBag">
+                <p id="emptyCart">YOUR CART IS EMPTY</p>
+                <div>
+                    <a href="./home.html"><button id="Continue-Shopping">Continue Shopping</button></a>
+                </div>     
             </div>
         </div>
-        <!-- Footer s -->
-           <!-- Footer Start -->
-   <footer class="footer">
+</div>
+<!-- Footer Start -->
+<footer class="footer">
     <div class="footer-container">
       <div class="footer-row">
         <div class="footer-col">
@@ -451,8 +440,8 @@
             <li><a href="#">International Shipping</a></li>
             <li><a href="#">Payment Options</a></li>
             <li><a href="#">Track your Order</a></li>
-                   <li><a href="#">Returns</a></li>
-                   <li><a href="#">Find a Store</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">Find a Store</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -462,7 +451,7 @@
             <li><a href="#">Blog</a></li>
             <li><a href="#">Offers &amp; Contest Details</a></li>
             <li><a href="#">Help &amp; FAQs</a></li>
-            <li><a href="#" >About <span style="color:#8b3436 ;">Gold Hub</span></a></li>
+            <li><a href="#">About <span style="color:#8b3436 ;">Gold Hub</span></a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -475,40 +464,39 @@
         </div>
         <div class="footer-col">
           <h4>Download the Gold Hub App Now</h4>
-               <div class="QrScan">
-                   <img width="70%" src="./images/ScannerLOGO.jpeg">
-               </div>
-       <div class="footer_play_btn" style="display: flex; margin-left: -5px;">
-                   <button style="background:none; border: none; cursor: pointer;"><img width="80%"  src="https://in.sugarcosmetics.com/apple-store.png" alt="apple-store"></button>
-                   <button style="background:none;  border: none;cursor: pointer;"><img width="80%"  src="https://in.sugarcosmetics.com/playstore.png" alt="playstore"></button>
-                   
-               </div>
+          <div class="QrScan">
+            <img width="70%" src="./images/ScannerLOGO.jpeg">
+          </div>
+          <div class="footer_play_btn" style="display: flex; margin-left: -5px;">
+            <button style="background:none; border: none; cursor: pointer;"><img width="80%"
+                src="https://in.sugarcosmetics.com/apple-store.png" alt="apple-store"></button>
+            <button style="background:none;  border: none;cursor: pointer;"><img width="80%"
+                src="https://in.sugarcosmetics.com/playstore.png" alt="playstore"></button>
+
+          </div>
           <div class="social-links">
-                   <p style="font-weight: bolder;color: #8b3436;">Follow Us On</p>
+            <p style="font-weight: bolder;color: #8b3436;">Follow Us On</p>
             <a href="#"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
-         <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
           </div>
         </div>
       </div>
     </div>
-<div class="footer-logoes">
- <a href="#"><i class="fa-brands fa-cc-visa"></i></a>
- <a href="#"><i class="fa-brands fa-cc-mastercard"></i></a>
- <a href="#"><i class="fa-brands fa-cc-paypal"></i></a>
- 
- <span style="color: #8b3436; font-size: small;margin-left: 40%;"> 
-  © 2024 Titan Company Limited. All Rights Reserved.</span>
-</div> 
-<div class="fooeter-term-condition" >
- <a style="text-decoration: none; color: #8b3436; font-size: 16px;;" href="#">Terms &Conditions | Privacy Policy</a>
- 
- </div>
- </footer>
+    <div class="footer-logoes">
+      <a href="#"><i class="fa-brands fa-cc-visa"></i></a>
+      <a href="#"><i class="fa-brands fa-cc-mastercard"></i></a>
+      <a href="#"><i class="fa-brands fa-cc-paypal"></i></a>
 
-        <!-- Footer e -->
-    <!-- </div> -->
-    <script src="wishlist.js"></script>
-    <script src="footer.js"></script>
+      <span style="color: #8b3436; font-size: small;margin-left: 40%;">
+        © 2024 Titan Company Limited. All Rights Reserved.</span>
+    </div>
+    <div class="fooeter-term-condition">
+      <a style="text-decoration: none; color: #8b3436; font-size: 16px;;" href="#">Terms &Conditions | Privacy
+        Policy</a>
+
+    </div>
+  </footer>
+<script src="cart.js"></script>
 </body>
 </html>
