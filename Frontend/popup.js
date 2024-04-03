@@ -26,12 +26,12 @@ loginButton.addEventListener('click', function () {
     }
 });
 
-loginButton.textContent = emailAddr ? 'Account' : 'Login';
+loginButton.textContent = emailAddr ? 'ACCOUNT' : 'LOGIN';
 
 // Event listener for logout button
 logout.addEventListener('click', function () {
     localStorage.removeItem("emailAdd");
-    loginButton.textContent = 'Login';
+    loginButton.textContent = 'LOGIN';
     window.location.href = "login.html"
     closePopup();
 });
